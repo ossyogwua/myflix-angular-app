@@ -47,9 +47,10 @@ public userRegistration(userDetails: any): Observable<any> {
      catchError(this.handleError)
    );
  }
-  extractResponseData(extractResponseData: any): import("rxjs").OperatorFunction<Object, unknown> {
-    throw new Error('Method not implemented.');
-  }
+ private extractResponseData(res: Object): any {
+  const body = res;
+  return body || {};
+}
 
   //Making the api call for the get one movie endpoint
    // @param title 
@@ -69,7 +70,7 @@ public userRegistration(userDetails: any): Observable<any> {
   //Making the api call for the get one director endpoint
   // @param directorName 
   //@returns an observable with a director object
- getOneDirector(directorName: string): Observable<any> {
+ getDirector(directorName: string): Observable<any> {
    const token = localStorage.getItem('token');
    return this.http.get(apiUrl + 'movies/director/' + directorName, {
      headers: new HttpHeaders({
@@ -84,7 +85,7 @@ public userRegistration(userDetails: any): Observable<any> {
   //Making the api call for the get one genre endpoint
    // @param genreName 
    // @returns an observable with a genre object
-  getOneGenre(genreName: string): Observable<any> {
+  getGenre(genreName: string): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'movies/genre/' + genreName, {
       headers: new HttpHeaders({
@@ -99,7 +100,7 @@ public userRegistration(userDetails: any): Observable<any> {
   //Making the api call for the get one user endpoint
   //@param username 
 // @returns an observable with a user object
-  getOneUser(username: string): Observable<any> {
+  getUser(): Observable<any> {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     return user;
   }
