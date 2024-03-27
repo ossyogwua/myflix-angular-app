@@ -25,8 +25,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit{
+userDetails() {
+throw new Error('Method not implemented.');
+}
 
-  @Input() userData = { Username: "", Email: "", Birthday: "", FavoriteMovies: [] };
+  @Input() userData = { Username: "", Password: "", Email: "", Birthday: "", FavoriteMovies: [] };
 
   user: any = {};
   movies: any[] = [];
@@ -58,6 +61,7 @@ export class UserProfileComponent implements OnInit{
   getProfile(): void {
     this.user = this.fetchApiData.getUser()
     this.userData.Username = this.user.Username;
+    this.userData.Password = this.user.Password;
     this.userData.Email = this.user.Email;
     this.userData.Birthday = this.user.Birthday;
     this.fetchApiData.getAllMovies().subscribe((response) => {
@@ -70,7 +74,7 @@ export class UserProfileComponent implements OnInit{
    * Function for updating user information.
    * @returns Message "User update successful" / "Failed to update user"
    */
-  updateUser(): void {
+  updateUser(Username: string, Password: string, Email: string, Birthday: string, FavoriteMovies: string ): void {
     this.fetchApiData.editUser(this.userData).subscribe((result) => {
       console.log('User update success:', result);
       localStorage.setItem('user', JSON.stringify(result));

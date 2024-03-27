@@ -27,6 +27,17 @@
                         required
                     >
                 </mat-form-field>
+                <label>Password:</label>
+                <mat-form-field class="form-inputs">
+                    <input
+                        matInput
+                        [(ngModel)]="userData.Password"
+                        placeholder="Password"
+                        type="text"
+                        name="Password"
+                        required
+                    >
+                </mat-form-field>
                 <label>Email:</label>
                 <mat-form-field class="form-inputs">
                     <input
@@ -63,7 +74,7 @@
                     mat-raised-button
                     class="button-profile"
                     color="primary"
-                    (click)="updateUser()"
+                    (click)="userDetails()"
                     type="submit"
                 >
                     Update

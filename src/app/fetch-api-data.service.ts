@@ -123,14 +123,14 @@ public userRegistration(userDetails: any): Observable<any> {
   //Making the api call for the edit user endpoint
   //@param updatedUser 
   // @returns an observable with a user object
- editUser(updatedUser: any): Observable<any> {
+ editUser(userDetails: any): Observable<any> {
    const user = JSON.parse(localStorage.getItem('user') || '{}');
    const token = localStorage.getItem('token');
-   return this.http.put(apiUrl + 'users/' + user.Username, updatedUser, {
+   return this.http.put(apiUrl + 'users/' + userDetails.Username, userDetails, {
      headers: new HttpHeaders({
        Authorization: 'Bearer ' + token,
-     })
-   }).pipe(
+      })
+    }).pipe(
      map(this.extractResponseData),
      catchError(this.handleError)
    );
