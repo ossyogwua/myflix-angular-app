@@ -14,7 +14,7 @@ import { FetchApiDataService  } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 /**
- * @description Component representing the user profile page.
+ * @description Component displayinging the user profile page.
  * @selector 'app-user-profile'
  * @templateUrl './user-profile.component.html'
  * @styleUrls ['./user-profile.component.scss']

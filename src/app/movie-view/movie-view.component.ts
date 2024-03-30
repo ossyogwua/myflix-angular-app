@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 /**
  * @description Component representing the movie synopsis dialog.
- * @selector 'app-movie-viw'
+ * @selector 'app-movie-view'
  * @templateUrl './movie-view.component.html'
  * @styleUrls ['./movie-view.component.scss']
  */

@@ -11,6 +11,13 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
  
 
+/**
+ * @description Component displaying the user registration form
+ * @selector 'app-user-registration-form'
+ * @templateUrl ./user-registration-form.component.html
+ * styleUrls ['./user-registration-form.component.scss']
+ */
+
 @Component({
   selector: 'app-user-registration-form',
   templateUrl: './user-registration-form.component.html',
@@ -20,6 +27,12 @@ export class UserRegistrationFormComponent implements OnInit {
 
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
+   /** 
+   * Called when creating an instance of the class
+   * @param FetchApiDataService - connects the client to the API
+   * @param dialogRef - references which component to target 
+   * @param snackBar - provides feedback after user interaction by displaying notifications
+   */
   constructor(
       public fetchApiData: FetchApiDataService,
       public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
